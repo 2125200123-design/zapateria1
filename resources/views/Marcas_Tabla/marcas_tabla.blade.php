@@ -23,6 +23,7 @@
                 <tr>
                     <th class="p-4 text-left">ID</th>
                     <th class="p-4 text-left">Marca</th>
+                    <th class="p-4 text-left">Acciones</th>
                 </tr>
 
             </thead>
@@ -33,6 +34,10 @@
                     <tr class="border-b hover:bg-gray-100">
                         <td class="p-4">{{ $marca->marca_id }}</td>
                         <td class="p-4">{{ $marca->marca }}</td>
+                            <td class="p-4">
+                        <a href="/marcas/editar/{{ $marca->marca_id }}" class="bg-yellow-500 text-white px-3 py-1 rounded">Editar</a>
+                        <a href="/marcas/eliminar/{{ $marca->marca_id }}" class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</a>
+                    </td>
                     </tr>
                 @endforeach
 
