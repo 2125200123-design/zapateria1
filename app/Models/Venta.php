@@ -6,20 +6,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venta extends Model
 {
-    //
     public $timestamps = false;
-    public function clientes()
+    protected $table = 'ventas';    
+    protected $primaryKey = 'venta_id';
+
+    protected $fillable = [
+        'cliente_id',
+        'empleado_id',
+        'metodo_pago',
+        'subtotal',
+        'descuento',
+        'iva',
+        'total',
+        'fecha_venta',
+        'estado'
+    ];
+
+    public function cliente()
     {
-        return $this->belongsTo(Cliente::class, 'id_cliente');
+        return $this->belongsTo(Cliente::class, 'cliente_id', 'cliente_id');
     }
 
-    public function empleados()
+    public function empleado()
     {
-        return $this->belongsTo(Empleado::class, 'id_empleado');
-    }
-
-    public function productos()
-    {
-        return $this->belongsToMany(Producto::class, 'id_venta');
+        return $this->belongsTo(Empleado::class, 'empleado_id', 'empleado_id');
     }
 }

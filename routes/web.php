@@ -76,13 +76,16 @@ Route::post('/contactos/guardar', [ContactoController::class, 'guardar'])->name(
 Route::post('/empleados/guardar', [EmpleadoController::class, 'guardar'])->name('empleados.guardar');
 Route::post('/marcas/guardar', [MarcaController::class, 'guardar'])->name('marcas.guardar');
 Route::post('/tallas/guardar', [TallaController::class, 'guardar'])->name('tallas.guardar'); 
+Route::post('/ventas/guardar', [VentaController::class, 'guardar'])->name('ventas.guardar');
 
 Route::get('/clientes/editar/{id}', [ClienteController::class, 'editar']);
 Route::get('/colores/editar/{id}', [ColorController::class, 'editar']);
 Route::get('/marcas/editar/{id}', [MarcaController::class, 'editar']);
 Route::get('/empleados/editar/{id}', [EmpleadoController::class, 'editar']);
+Route::get('/ventas/editar/{id}', [VentaController::class, 'editar']);
 
 Route::post('/clientes/actualizar/{id}', [ClienteController::class, 'actualizar']);
 Route::post('/colores/actualizar/{id}', [ColorController::class, 'actualizar']);
 Route::post('/marcas/actualizar/{id}', [MarcaController::class, 'actualizar']);
 Route::post('/empleados/actualizar/{id}', [EmpleadoController::class, 'actualizar']);
+Route::post('/ventas/actualizar/{id}', [VentaController::class, 'actualizar']);
