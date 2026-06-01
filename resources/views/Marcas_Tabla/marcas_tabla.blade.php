@@ -8,7 +8,7 @@
         </h1>
 
         <p class="text-gray-500 mt-2">
-            Visualización de marcas registradas
+            VisualizaciÃ³n de marcas registradas
         </p>
     </div>
 
@@ -29,12 +29,23 @@
 
             <tbody>
 
+                @foreach ($marcas as $marca)
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="p-4">{{ $marca->marca_id }}</td>
+                        <td class="p-4">{{ $marca->marca }}</td>
+                    </tr>
+                @endforeach
 
             </tbody>
 
         </table>
 
     </div>
+
+            <a href="/Marcas"
+                class="mb-4 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl">
+                Nueva marca
+            </a>
 
             <a href="/"
                 class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">

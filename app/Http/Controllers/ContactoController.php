@@ -2,12 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contacto;
 use Illuminate\Http\Request;
 
 class ContactoController extends Controller
 {
-    public function listado(){
-       // return "Este es el metodo para el select * from table";
-        return view('/Contactos_Tabla/contactos_tabla');
+    public function listado()
+    {
+        $contactos = Contacto::all();
+
+        return view(
+            'Contactos_Tabla.contactos_tabla',
+            compact('contactos')
+        );
+    }
+
+    public function guardar(Request $request)
+    {
+        $contacto = new Contacto();
+
+        $contacto->nombre = $request->nombre;
+        $contacto->correo = $request->correo;
+        $contacto->telefono = $request->telefono;
+
+        $contacto->save();
+
+        return redirect('/Contactos_Tabla');
     }
 }

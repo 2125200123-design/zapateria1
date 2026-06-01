@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Compra;
 
 class CompraController extends Controller
 {
-    public function listado(){
-       // return "Este es el metodo para el select * from table";
-        return view('/Compras_Tabla/compras_tabla');
+    public function listado()
+    {
+        $compras = Compra::all();
+
+        return view(
+            'Compras_Tabla.compras_tabla',
+            compact('compras')
+        );
     }
 }

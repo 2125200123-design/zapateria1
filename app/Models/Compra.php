@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Compras extends Model
+class Compra extends Model
 {
     //
      public $timestamps = false;
-     protected $table = 'compra';
-     public function proovedor()
+     protected $table = 'compras';
+     public function proveedor()
     {
-        return $this->belongsTo(Proovedor::class, 'id_proovedor');
+        return $this->belongsTo(Proveedor::class, 'id_proveedor');
     }
 
     public function productos()

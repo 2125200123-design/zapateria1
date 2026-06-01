@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contactos extends Model
+class Contacto extends Model
 {
-    //
-     public $timestamps = false;
-        public function proovedor()
+    protected $table = 'contactos';
+
+    public $timestamps = false;
+
+    public function proveedor()
     {
-        return $this->belongsTo(Proovedor::class, 'id_proovedor');
+        return $this->belongsTo(Proveedor::class, 'id_proveedor');
     }
 }
