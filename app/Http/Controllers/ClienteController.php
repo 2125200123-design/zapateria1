@@ -18,8 +18,8 @@ class ClienteController extends Controller
 
     public function guardar(Request $request)
     {
+        dd($request->all());
         $cliente = new Cliente();
-
         $cliente->nombre = $request->nombre;
         $cliente->correo = $request->correo;
         $cliente->rfc = $request->rfc;
@@ -28,6 +28,7 @@ class ClienteController extends Controller
         $cliente->edad = $request->edad;
         $cliente->contrasena = $request->contrasena;
         $cliente->estado = $request->estado;
+        //tambien le puso lo de la imagen pero no se si eso lo vaya a tronar aqui xd
 
         $cliente->save();
 

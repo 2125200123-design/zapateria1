@@ -48,6 +48,7 @@ Route::view('/Inicio_de_sesion','/Inicio_de_sesion/inicio_de_sesion');
 //Route::view('/Clientes_Tabla','/Clientes_Tabla/clientes_tabla');
 //Route::view('/Empleados_Tabla','/Empleados_Tabla/empleados_tabla');
 
+//Tablas
 Route::get('/Empleados_Tabla',[EmpleadoController::class,'listado']);
 Route::get('/Contactos_Tabla',[ContactoController::class,'listado']);
 Route::get('/Proveedores_Tabla',[ProveedorController::class,'listado']);
@@ -59,6 +60,7 @@ Route::get('/Colores_Tabla',[ColorController::class,'listado']);
 Route::get('/Ventas_Tabla',[VentaController::class,'listado']);
 Route::get('/Clientes_Tabla',[ClienteController::class,'listado']);
 
+//Formularios
 Route::get('/Clientes',[FormClienteController::class,'listado']);
 Route::get('/Colores',[FormColorController::class,'listado']);
 Route::get('/Compras',[FormCompraController::class,'listado']);
@@ -70,6 +72,7 @@ Route::get('/Proveedores',[FormProveedorController::class,'listado']);
 Route::get('/Tallas',[FormTallaController::class,'listado']);
 Route::get('/Ventas',[FormVentaController::class,'listado']);
 
+//Guardar datos
 Route::post('/clientes/guardar', [ClienteController::class, 'guardar'])->name('clientes.guardar');
 Route::post('/colores/guardar', [ColorController::class, 'guardar'])->name('colores.guardar');
 Route::post('/contactos/guardar', [ContactoController::class, 'guardar'])->name('contactos.guardar');
@@ -78,12 +81,14 @@ Route::post('/marcas/guardar', [MarcaController::class, 'guardar'])->name('marca
 Route::post('/tallas/guardar', [TallaController::class, 'guardar'])->name('tallas.guardar'); 
 Route::post('/ventas/guardar', [VentaController::class, 'guardar'])->name('ventas.guardar');
 
+//Editar datos
 Route::get('/clientes/editar/{id}', [ClienteController::class, 'editar']);
 Route::get('/colores/editar/{id}', [ColorController::class, 'editar']);
 Route::get('/marcas/editar/{id}', [MarcaController::class, 'editar']);
 Route::get('/empleados/editar/{id}', [EmpleadoController::class, 'editar']);
 Route::get('/ventas/editar/{id}', [VentaController::class, 'editar']);
 
+//Actualizar datos
 Route::post('/clientes/actualizar/{id}', [ClienteController::class, 'actualizar']);
 Route::post('/colores/actualizar/{id}', [ColorController::class, 'actualizar']);
 Route::post('/marcas/actualizar/{id}', [MarcaController::class, 'actualizar']);
