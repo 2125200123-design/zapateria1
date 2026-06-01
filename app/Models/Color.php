@@ -8,6 +8,7 @@ class Color extends Model
 {
     //
     protected $table = 'colores';
+    protected $primaryKey = 'color_id';
      public $timestamps = false;
              public function productos()
       {

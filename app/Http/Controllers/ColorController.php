@@ -27,4 +27,22 @@ class ColorController extends Controller
 
         return redirect('/Colores_Tabla');
     }
+
+        public function editar($id)
+    {
+        $colores = Color::findOrFail($id);
+
+        return view('colores.colores', compact('colores'));
+    }
+
+    public function actualizar(Request $request, $id)
+    {
+        $colores = Color::findOrFail($id);
+
+        $colores->color = $request->color;
+
+        $colores->save();
+
+        return redirect('/Colores_Tabla');
+    }
 }

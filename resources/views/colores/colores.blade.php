@@ -14,8 +14,13 @@
 
 <div class="min-h-screen bg-gray-100 py-10 px-6">
 
-    <form action="/colores/guardar" method="POST">
-    @csrf
+        @if(isset($colores))
+            <form action="/colores/actualizar/{{ $colores->color_id }}" method="POST">
+        @else
+            <form action="/colores/guardar" method="POST">
+        @endif
+
+        @csrf
 
         <div class="grid grid-cols-1 gap-6">
 
@@ -47,11 +52,11 @@
 
         </div>
 
-        <button class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
-            Guardar Color
-        </button>
+            <button class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
+                {{ isset($colores) ? 'Actualizar Color' : 'Guardar Color' }}
+            </button>
 
-            <a href="/"
+            <a href="/Colores_Tabla"
                 class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
                 Regresar
             </a>
