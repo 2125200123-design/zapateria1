@@ -37,7 +37,7 @@
                     </li>
 
                     <li>
-                        <a href="/Proovedores"
+                        <a href="/Proveedores"
                            class="block bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-semibold p-4 rounded-xl transition">
                             Proveedores
                         </a>
@@ -125,7 +125,7 @@
                     </li>
 
                     <li>
-                        <a href="/Proovedores_Tabla"
+                        <a href="/Proveedores_Tabla"
                            class="block bg-green-100 hover:bg-green-200 text-green-700 font-semibold p-4 rounded-xl transition">
                             Proveedores
                         </a>

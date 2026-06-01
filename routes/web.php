@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContactoController;
-use App\Http\Controllers\ProovedorController;
+use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\TallaController;
@@ -19,7 +19,7 @@ use App\Http\Controllers\FormContactoController;
 use APP\Http\Controllers\FormEmpleadoController;
 use App\Http\Controllers\FormMarcaController;
 use App\Http\Controllers\FormProductoController;
-use App\Http\Controllers\FormProovedorController;
+use App\Http\Controllers\FormProveedorController;
 use App\Http\Controllers\FormTallaController;
 use App\Http\Controllers\FormVentaController;
 
@@ -50,7 +50,7 @@ Route::view('/Inicio_de_sesion','/Inicio_de_sesion/inicio_de_sesion');
 
 Route::get('/Empleados_Tabla',[EmpleadoController::class,'listado']);
 Route::get('/Contactos_Tabla',[ContactoController::class,'listado']);
-Route::get('/Proovedores_Tabla',[ProovedorController::class,'listado']);
+Route::get('/Proveedores_Tabla',[ProveedorController::class,'listado']);
 Route::get('/Compras_Tabla',[CompraController::class,'listado']);
 Route::get('/Productos_Tabla',[ProductoController::class,'listado']);
 Route::get('/Tallas_Tabla',[TallaController::class,'listado']);
@@ -66,7 +66,7 @@ Route::get('/Contactos',[FormContactoController::class,'listado']);
 Route::get('/Empleados',[FormEmpleadoController::class,'listado']);
 Route::get('/Marcas',[FormMarcaController::class,'listado']);
 Route::get('/Productos',[FormProductoController::class,'listado']);
-Route::get('/Proovedores',[FormProovedorController::class,'listado']);
+Route::get('/Proveedores',[FormProveedorController::class,'listado']);
 Route::get('/Tallas',[FormTallaController::class,'listado']);
 Route::get('/Ventas',[FormVentaController::class,'listado']);
 
