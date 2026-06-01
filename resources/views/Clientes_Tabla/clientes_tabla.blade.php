@@ -35,7 +35,37 @@
             </thead>
 
             <tbody>
+                <tbody>
 
+@foreach($clientes as $cliente)
+
+<tr class="border-b hover:bg-gray-100">
+
+    <td class="p-4">{{ $cliente->cliente_id }}</td>
+
+    <td class="p-4">
+        {{ $cliente->imagen }}
+    </td>
+
+    <td class="p-4">{{ $cliente->nombre }}</td>
+
+    <td class="p-4">{{ $cliente->correo }}</td>
+
+    <td class="p-4">{{ $cliente->rfc }}</td>
+
+    <td class="p-4">{{ $cliente->telefono }}</td>
+
+    <td class="p-4">{{ $cliente->direccion }}</td>
+
+    <td class="p-4">{{ $cliente->edad }}</td>
+
+    <td class="p-4">{{ $cliente->estado }}</td>
+
+</tr>
+
+@endforeach
+
+</tbody>
 
             </tbody>
 
