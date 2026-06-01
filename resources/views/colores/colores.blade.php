@@ -14,7 +14,8 @@
 
 <div class="min-h-screen bg-gray-100 py-10 px-6">
 
-    <form>
+    <form action="/colores/guardar" method="POST">
+    @csrf
 
         <div class="grid grid-cols-1 gap-6">
 
@@ -22,6 +23,7 @@
                 <label class="font-semibold">Color</label>
 
                 <select
+                    name="color"
                     required
                     class="w-full border rounded-lg p-3 mt-2"
                 >

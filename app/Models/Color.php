@@ -11,6 +11,6 @@ class Color extends Model
      public $timestamps = false;
              public function productos()
       {
-          return $this->hasMany(Productos::class, 'id_color');
+          return $this->hasMany(Producto::class, 'id_color');
       }
 }

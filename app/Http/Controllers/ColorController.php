@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Color;
+use Illuminate\Http\Request;
 
 class ColorController extends Controller
 {
@@ -14,5 +15,16 @@ class ColorController extends Controller
             'Colores_Tabla.colores_tabla',
             compact('colores')
         );
+    }
+
+    public function guardar(Request $request)
+    {
+        $colores = new Color();
+
+        $colores->color = $request->color;
+
+        $colores->save();
+
+        return redirect('/Colores_Tabla');
     }
 }

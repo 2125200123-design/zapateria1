@@ -20,7 +20,7 @@ class MarcaController extends Controller
     {
         $marca = new Marca();
 
-        $marca->nombre = $request->marca;
+        $marca->marca = $request->marca;
 
         $marca->save();
 

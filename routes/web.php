@@ -75,7 +75,7 @@ Route::post('/colores/guardar', [ColorController::class, 'guardar'])->name('colo
 Route::post('/contactos/guardar', [ContactoController::class, 'guardar'])->name('contactos.guardar');
 Route::post('/empleados/guardar', [EmpleadoController::class, 'guardar'])->name('empleados.guardar');
 Route::post('/marcas/guardar', [MarcaController::class, 'guardar'])->name('marcas.guardar');
-Route::post('/tallas/guardar', [TallaController::class, 'guardar'])->name('tallas.guardar');
+Route::post('/tallas/guardar', [TallaController::class, 'guardar'])->name('tallas.guardar'); 
 
 Route::get('/clientes/editar/{id}', [ClienteController::class, 'editar']);
 
