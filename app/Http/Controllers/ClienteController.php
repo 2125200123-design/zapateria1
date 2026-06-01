@@ -6,8 +6,7 @@ use App\Models\Cliente;
 
 class ClienteController extends Controller
 {
-    public function listado()
-    {
+    public function listado()   {
         $clientes = Cliente::all();
 
         return view(

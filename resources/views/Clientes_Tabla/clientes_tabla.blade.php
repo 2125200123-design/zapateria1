@@ -30,6 +30,7 @@
                     <th class="p-4 text-left">Dirección</th>
                     <th class="p-4 text-left">Edad</th>
                     <th class="p-4 text-left">Estado</th>
+                    <th class="p-4 text-left">Acciones</th>
                 </tr>
 
             </thead>
@@ -61,6 +62,11 @@
 
     <td class="p-4">{{ $cliente->estado }}</td>
 
+    <td class="p-4">
+        <a href="/clientes/editar/{{ $cliente->cliente_id }}" class="bg-yellow-500 text-white px-3 py-1 rounded">Editar</a>
+        <a href="/clientes/eliminar/{{ $cliente->cliente_id }}" class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</a>
+    </td>
+
 </tr>
 
 @endforeach
@@ -72,6 +78,10 @@
         </table>
 
     </div>
+            <a href="/lientes"
+                class="mb-4 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl">
+                Nuevo Cliente
+            </a>
 
             <a href="/"
                 class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">

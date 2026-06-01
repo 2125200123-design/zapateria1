@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Colores extends Model
+class Color extends Model
 {
     //
+    protected $table = 'colores';
      public $timestamps = false;
              public function productos()
       {
-          return $this->hasMany(Producto::class, 'id_color');
+          return $this->hasMany(Productos::class, 'id_color');
       }
 }
