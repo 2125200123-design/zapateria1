@@ -23,8 +23,8 @@ use App\Http\Controllers\FormProveedorController;
 use App\Http\Controllers\FormTallaController;
 use App\Http\Controllers\FormVentaController;
 
-Route::view('/','inicio');
-Route::view('/Inicio_de_sesion','/Inicio_de_sesion/inicio_de_sesion');
+Route::view('/', 'inicio');
+Route::view('/Inicio_de_sesion', '/Inicio_de_sesion/inicio_de_sesion');
 
 //Route::view('/Contactos','/Contactos/contactos');
 //Route::view('/Proovedores','/Proovedores/proovedores');
@@ -49,28 +49,28 @@ Route::view('/Inicio_de_sesion','/Inicio_de_sesion/inicio_de_sesion');
 //Route::view('/Empleados_Tabla','/Empleados_Tabla/empleados_tabla');
 
 //Tablas
-Route::get('/Empleados_Tabla',[EmpleadoController::class,'listado']);
-Route::get('/Contactos_Tabla',[ContactoController::class,'listado']);
-Route::get('/Proveedores_Tabla',[ProveedorController::class,'listado']);
-Route::get('/Compras_Tabla',[CompraController::class,'listado']);
-Route::get('/Productos_Tabla',[ProductoController::class,'listado']);
-Route::get('/Tallas_Tabla',[TallaController::class,'listado']);
-Route::get('/Marcas_Tabla',[MarcaController::class,'listado']);
-Route::get('/Colores_Tabla',[ColorController::class,'listado']);
-Route::get('/Ventas_Tabla',[VentaController::class,'listado']);
-Route::get('/Clientes_Tabla',[ClienteController::class,'listado']);
+Route::get('/Empleados_Tabla', [EmpleadoController::class, 'listado']);
+Route::get('/Contactos_Tabla', [ContactoController::class, 'listado']);
+Route::get('/Proveedores_Tabla', [ProveedorController::class, 'listado']);
+Route::get('/Compras_Tabla', [CompraController::class, 'listado']);
+Route::get('/Productos_Tabla', [ProductoController::class, 'listado']);
+Route::get('/Tallas_Tabla', [TallaController::class, 'listado']);
+Route::get('/Marcas_Tabla', [MarcaController::class, 'listado']);
+Route::get('/Colores_Tabla', [ColorController::class, 'listado']);
+Route::get('/Ventas_Tabla', [VentaController::class, 'listado']);
+Route::get('/Clientes_Tabla', [ClienteController::class, 'listado']);
 
 //Formularios
-Route::get('/Clientes',[FormClienteController::class,'listado']);
-Route::get('/Colores',[FormColorController::class,'listado']);
-Route::get('/Compras',[FormCompraController::class,'listado']);
-Route::get('/Contactos',[FormContactoController::class,'listado']);
-Route::get('/Empleados',[FormEmpleadoController::class,'listado']);
-Route::get('/Marcas',[FormMarcaController::class,'listado']);
-Route::get('/Productos',[FormProductoController::class,'listado']);
-Route::get('/Proveedores',[FormProveedorController::class,'listado']);
-Route::get('/Tallas',[FormTallaController::class,'listado']);
-Route::get('/Ventas',[FormVentaController::class,'listado']);
+Route::get('/Clientes', [FormClienteController::class, 'listado']);
+Route::get('/Colores', [FormColorController::class, 'listado']);
+Route::get('/Compras', [FormCompraController::class, 'listado']);
+Route::get('/Contactos', [FormContactoController::class, 'listado']);
+Route::get('/Empleados', [FormEmpleadoController::class, 'listado']);
+Route::get('/Marcas', [FormMarcaController::class, 'listado']);
+Route::get('/Productos', [FormProductoController::class, 'listado']);
+Route::get('/Proveedores', [FormProveedorController::class, 'listado']);
+Route::get('/Tallas', [FormTallaController::class, 'listado']);
+Route::get('/Ventas', [FormVentaController::class, 'listado']);
 
 //Guardar datos
 Route::post('/clientes/guardar', [ClienteController::class, 'guardar'])->name('clientes.guardar');
@@ -78,7 +78,7 @@ Route::post('/colores/guardar', [ColorController::class, 'guardar'])->name('colo
 Route::post('/contactos/guardar', [ContactoController::class, 'guardar'])->name('contactos.guardar');
 Route::post('/empleados/guardar', [EmpleadoController::class, 'guardar'])->name('empleados.guardar');
 Route::post('/marcas/guardar', [MarcaController::class, 'guardar'])->name('marcas.guardar');
-Route::post('/tallas/guardar', [TallaController::class, 'guardar'])->name('tallas.guardar'); 
+Route::post('/tallas/guardar', [TallaController::class, 'guardar'])->name('tallas.guardar');
 Route::post('/ventas/guardar', [VentaController::class, 'guardar'])->name('ventas.guardar');
 
 //Editar datos
