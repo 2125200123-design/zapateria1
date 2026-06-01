@@ -11,7 +11,7 @@ class VentaController extends Controller
 {
     public function listado()
     {
-        $ventas = Venta::with(['cliente', 'empleado'])->get();
+        $ventas = Venta::all();
 
         return view('Ventas_Tabla.ventas_tabla', compact('ventas'));
     }
@@ -45,6 +45,7 @@ class VentaController extends Controller
     public function editar($id)
     {
         $venta = Venta::findOrFail($id);
+
         $clientes = Cliente::all();
         $empleados = Empleado::all();
 

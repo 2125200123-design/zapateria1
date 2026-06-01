@@ -16,7 +16,7 @@ use App\Http\Controllers\FormClienteController;
 use App\Http\Controllers\FormColorController;
 use App\Http\Controllers\FormCompraController;
 use App\Http\Controllers\FormContactoController;
-use APP\Http\Controllers\FormEmpleadoController;
+use App\Http\Controllers\FormEmpleadoController;
 use App\Http\Controllers\FormMarcaController;
 use App\Http\Controllers\FormProductoController;
 use App\Http\Controllers\FormProveedorController;
