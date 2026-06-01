@@ -69,3 +69,5 @@ Route::get('/Productos',[FormProductoController::class,'listado']);
 Route::get('/Proovedores',[FormProovedorController::class,'listado']);
 Route::get('/Tallas',[FormTallaController::class,'listado']);
 Route::get('/Ventas',[FormVentaController::class,'listado']);
+
+Route::post('/clientes/guardar', [ClienteController::class, 'guardar'])->name('clientes.guardar');

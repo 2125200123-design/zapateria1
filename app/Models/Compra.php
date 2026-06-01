@@ -8,6 +8,7 @@ class Compras extends Model
 {
     //
      public $timestamps = false;
+     protected $table = 'compra';
      public function proovedor()
     {
         return $this->belongsTo(Proovedor::class, 'id_proovedor');
@@ -15,7 +16,7 @@ class Compras extends Model
 
     public function productos()
     {
-        return $this->belongsToMany(Producto::class, 'id_compra');
+        return $this->belongsToMany(Productos::class, 'id_compra');
     }
 
 }
