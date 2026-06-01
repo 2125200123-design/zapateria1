@@ -31,18 +31,57 @@
                     <th class="p-4 text-left">Edad</th>
                     <th class="p-4 text-left">Rol</th>
                     <th class="p-4 text-left">Estado</th>
+                    <th class="p-4 text-left">Acciones</th>
                 </tr>
 
             </thead>
 
-            <tbody>
+@foreach($empleados as $empleado)
 
+<tr class="border-b hover:bg-gray-100">
+
+    <td class="p-4">{{ $empleado->empleado_id }}</td>
+
+    <td class="p-4">
+        {{ $empleado->imagen }}
+    </td>
+
+    <td class="p-4">{{ $empleado->nombre }}</td>
+
+    <td class="p-4">{{ $empleado->correo }}</td>
+
+    <td class="p-4">{{ $empleado->rfc }}</td>
+
+    <td class="p-4">{{ $empleado->telefono }}</td>
+
+    <td class="p-4">{{ $empleado->direccion }}</td>
+
+    <td class="p-4">{{ $empleado->edad }}</td>
+
+    <td class="p-4">{{ $empleado->rol }}</td>
+
+    <td class="p-4">{{ $empleado->estado }}</td>
+
+    <td class="p-4">
+        <a href="/empleados/editar/{{ $empleado->empleado_id }}" class="bg-yellow-500 text-white px-3 py-1 rounded">Editar</a>
+        <a href="/empleados/eliminar/{{ $empleado->empleado_id }}" class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</a>
+    </td>
+
+</tr>
+
+@endforeach
+
+</tbody>
 
             </tbody>
 
         </table>
 
     </div>
+            <a href="/Empleados"
+                class="mb-4 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl">
+                Nuevo Empleado
+            </a>
 
             <a href="/"
                 class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">

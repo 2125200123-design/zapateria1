@@ -35,9 +35,6 @@
 
             </thead>
 
-            <tbody>
-                <tbody>
-
 @foreach($clientes as $cliente)
 
 <tr class="border-b hover:bg-gray-100">

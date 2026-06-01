@@ -80,7 +80,9 @@ Route::post('/tallas/guardar', [TallaController::class, 'guardar'])->name('talla
 Route::get('/clientes/editar/{id}', [ClienteController::class, 'editar']);
 Route::get('/colores/editar/{id}', [ColorController::class, 'editar']);
 Route::get('/marcas/editar/{id}', [MarcaController::class, 'editar']);
+Route::get('/empleados/editar/{id}', [EmpleadoController::class, 'editar']);
 
 Route::post('/clientes/actualizar/{id}', [ClienteController::class, 'actualizar']);
 Route::post('/colores/actualizar/{id}', [ColorController::class, 'actualizar']);
 Route::post('/marcas/actualizar/{id}', [MarcaController::class, 'actualizar']);
+Route::post('/empleados/actualizar/{id}', [EmpleadoController::class, 'actualizar']);
