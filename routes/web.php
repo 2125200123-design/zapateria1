@@ -71,3 +71,7 @@ Route::get('/Tallas',[FormTallaController::class,'listado']);
 Route::get('/Ventas',[FormVentaController::class,'listado']);
 
 Route::post('/clientes/guardar', [ClienteController::class, 'guardar'])->name('clientes.guardar');
+
+Route::get('/clientes/editar/{id}', [ClienteController::class, 'editar']);
+
+Route::post('/clientes/actualizar/{id}', [ClienteController::class, 'actualizar']);

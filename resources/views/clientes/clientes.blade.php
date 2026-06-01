@@ -12,9 +12,14 @@
         </p>
     </div>
 
-<div class="min-h-screen bg-gray-100 py-10 px-6">
-        <form action="{{ route('clientes.guardar') }}" method="POST" enctype="multipart/form-data">
-            @csrf
+    <div class="min-h-screen bg-gray-100 py-10 px-6">
+        @if(isset($cliente))
+            <form action="/clientes/actualizar/{{ $cliente->cliente_id }}" method="POST">
+        @else
+            <form action="/clientes/guardar" method="POST">
+        @endif
+
+        @csrf
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -22,6 +27,7 @@
                     <label class="font-semibold">Nombre</label>
 
                     <input
+                        value="{{ $cliente->nombre ?? '' }}"
                         type="text"
                         name="nombre"
                         maxlength="80"
@@ -37,6 +43,7 @@
                     <label class="font-semibold">Correo</label>
 
                     <input
+                        value="{{ $cliente->correo ?? '' }}"
                         type="email"
                         name="correo"
                         maxlength="100"
@@ -50,6 +57,7 @@
                     <label class="font-semibold">RFC</label>
 
                     <input
+                        value="{{ $cliente->rfc ?? '' }}"
                         type="text"
                         name="rfc"
                         minlength="13"
@@ -64,6 +72,7 @@
                     <label class="font-semibold">Teléfono</label>
 
                     <input
+                        value="{{ $cliente->telefono ?? '' }}"
                         type="tel"
                         name="telefono"
                         minlength="10"
@@ -79,6 +88,7 @@
                     <label class="font-semibold">Dirección</label>
 
                     <input
+                        value="{{ $cliente->direccion ?? '' }}"
                         type="text"
                         name="direccion"
                         maxlength="150"
@@ -91,6 +101,7 @@
                     <label class="font-semibold">Edad</label>
 
                     <input
+                        value="{{ $cliente->edad ?? '' }}"
                         type="number"
                         name="edad"
                         min="18"
@@ -103,6 +114,7 @@
                     <label class="font-semibold">Contraseña</label>
 
                     <input
+                        value="{{ $cliente->contrasena ?? '' }}"
                         type="password"
                         name="contrasena"
                         minlength="8"
@@ -116,6 +128,7 @@
                     <label class="font-semibold">Imagen</label>
 
                     <input
+                        value="{{ $cliente->imagen ?? '' }}"
                         type="file"
                         name="imagen"
                         accept=".jpg,.jpeg,.png,.webp"
@@ -127,6 +140,7 @@
                     <label class="font-semibold">Estado</label>
 
                     <select
+                        value="{{ $cliente->estado ?? '' }}"
                         name="estado"
                         required
                         class="w-full border rounded-lg p-3 mt-2"
@@ -140,10 +154,8 @@
 
             </div>
 
-            <button
-                type="submit"
-                class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
-                Guardar Cliente
+            <button class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
+                {{ isset($cliente) ? 'Actualizar Cliente' : 'Guardar Cliente' }}
             </button>
 
         </form>

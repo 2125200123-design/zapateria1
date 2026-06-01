@@ -33,4 +33,29 @@ class ClienteController extends Controller
 
         return redirect('/Clientes_Tabla');
     }
+
+    public function editar($id)
+    {
+        $cliente = Cliente::findOrFail($id);
+
+        return view('clientes.clientes', compact('cliente'));
+    }
+
+    public function actualizar(Request $request, $id)
+    {
+        $cliente = Cliente::findOrFail($id);
+
+        $cliente->nombre = $request->nombre;
+        $cliente->correo = $request->correo;
+        $cliente->rfc = $request->rfc;
+        $cliente->telefono = $request->telefono;
+        $cliente->direccion = $request->direccion;
+        $cliente->edad = $request->edad;
+        $cliente->contrasena = $request->contrasena;
+        $cliente->estado = $request->estado;
+
+        $cliente->save();
+
+        return redirect('/Clientes_Tabla');
+    }
 }
