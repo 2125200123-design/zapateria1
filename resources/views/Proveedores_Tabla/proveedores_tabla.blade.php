@@ -35,11 +35,11 @@
                     <tr class="border-b hover:bg-gray-100">
 
                         <td class="p-4">
-                            {{ $proveedor->id }}
+                            {{ $proveedor->proveedor_id }}
                         </td>
 
                         <td class="p-4">
-                            {{ $proveedor->contacto }}
+                            {{ $proveedor->contacto_id }}
                         </td>
 
                         <td class="p-4">
