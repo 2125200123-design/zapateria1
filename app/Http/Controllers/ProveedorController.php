@@ -6,10 +6,34 @@ use App\Models\Proveedor;
 
 class ProveedorController extends Controller
 {
-    public function listado()
+     public function listado()
     {
         $proveedores = Proveedor::all();
 
-        return view('Proveedores_Tabla.proveedores_tabla', compact('proveedores'));
+        return view(
+            'Proveedores_Tabla.proveedores_tabla',
+            compact('proveedores')
+        );
+    }
+
+    public function editar($id)
+    {
+        $proveedor = Proveedor::findOrFail($id);
+
+        return view('proveedores.proveedores', compact('proveedor'));
+    }
+
+    public function actualizar($id)
+    {
+        $proveedor = Proveedor::findOrFail($id);
+
+        $proveedor->nombre = request('nombre');
+        $proveedor->direccion = request('direccion');
+        $proveedor->telefono = request('telefono');
+        $proveedor->correo = request('correo');
+
+        $proveedor->save();
+
+        return redirect('/Proveedores_Tabla');
     }
 }

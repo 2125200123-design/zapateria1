@@ -6,22 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proveedor extends Model
 {
+    protected $primaryKey = 'proveedor_id';
     protected $table = 'proveedores';
 
       public $timestamps = false;
       public function productos()
       {
-          return $this->hasMany(Productos::class, 'id_proveedor');
+          return $this->hasMany(Producto::class, 'id_proveedor');
       }
       
       public function compras()
       {
-          return $this->hasMany(Compras::class, 'id_proveedor');
+          return $this->hasMany(Compra::class, 'id_proveedor');
       }
 
         public function contactos()
       {
-          return $this->hasMany(Contactos::class, 'id_proveedor');
+          return $this->hasMany(Contacto::class, 'id_proveedor');
       }
 
 }

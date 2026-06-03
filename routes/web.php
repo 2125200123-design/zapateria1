@@ -89,6 +89,7 @@ Route::get('/empleados/editar/{id}', [EmpleadoController::class, 'editar']);
 Route::get('/ventas/editar/{id}', [VentaController::class, 'editar']);
 Route::get('/tallas/editar/{id}', [TallaController::class, 'editar']);
 Route::get('/contactos/editar/{id}', [ContactoController::class, 'editar']);
+Route::get('/proveedores/editar/{id}', [ProveedorController::class, 'editar']);
 
 //Actualizar datos
 Route::post('/clientes/actualizar/{id}', [ClienteController::class, 'actualizar']);
@@ -98,3 +99,4 @@ Route::post('/empleados/actualizar/{id}', [EmpleadoController::class, 'actualiza
 Route::post('/ventas/actualizar/{id}', [VentaController::class, 'actualizar']); 
 Route::post('/tallas/actualizar/{id}', [TallaController::class, 'actualizar']);
 Route::post('/contactos/actualizar/{id}', [ContactoController::class, 'actualizar']);
+Route::post('/proveedores/actualizar/{id}', [ProveedorController::class, 'actualizar']);
