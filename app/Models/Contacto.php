@@ -10,6 +10,8 @@ class Contacto extends Model
 
     public $timestamps = false;
 
+    protected $primaryKey = 'contacto_id';
+
     public function proveedor()
     {
         return $this->belongsTo(Proveedor::class, 'id_proveedor');

@@ -25,18 +25,45 @@
                     <th class="p-4 text-left">Nombre</th>
                     <th class="p-4 text-left">Correo</th>
                     <th class="p-4 text-left">Teléfono</th>
+                    <th class="p-4 text-left">Acciones</th>
                 </tr>
 
             </thead>
 
             <tbody>
+                @foreach ($contactos as $contacto)
+                    <tr class="border-b hover:bg-gray-100">
 
+                        <td class="p-4">{{ $contacto->contacto_id }}</td>
 
+                        <td class="p-4">{{ $contacto->nombre }}</td>
+
+                        <td class="p-4">{{ $contacto->correo }}</td>
+
+                        <td class="p-4">{{ $contacto->telefono }}</td>
+
+                        <td class="p-4">
+                            <a href="/contactos/editar/{{ $contacto->contacto_id }}"
+                                class="bg-yellow-500 text-white px-3 py-1 rounded">
+                                Editar
+                            </a>
+                            <a href="/contactos/eliminar/{{ $contacto->contacto_id }}"
+                                class="bg-red-500 text-white px-3 py-1 rounded">
+                                Eliminar
+                            </a>
+                        </td>
+
+                    </tr>
+                @endforeach
             </tbody>
 
         </table>
 
     </div>
+            <a href="/Contactos"
+                class="mt-8 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl">
+                Agregar Contacto
+            </a>
 
             <a href="/"
                 class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">

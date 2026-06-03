@@ -14,7 +14,13 @@
 
 <div class="min-h-screen bg-gray-100 py-10 px-6">
 
-    <form>
+    @if(isset($contacto))
+    <form action="/contactos/actualizar/{{ $contacto->contacto_id }}" method="POST">
+    @else
+    <form action="/contactos/guardar" method="POST">
+    @endif
+
+        @csrf
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -22,6 +28,8 @@
                 <label class="font-semibold">Nombre</label>
 
                 <input
+                    name="nombre"
+                    value="{{ isset($contacto) ? $contacto->nombre : '' }}"
                     type="text"
                     minlength="3"
                     maxlength="80"
@@ -36,6 +44,8 @@
                 <label class="font-semibold">Correo</label>
 
                 <input
+                    name="correo"
+                    value="{{ isset($contacto) ? $contacto->correo : '' }}"
                     type="email"
                     maxlength="100"
                     required
@@ -48,6 +58,8 @@
                 <label class="font-semibold">Teléfono</label>
 
                 <input
+                    name="telefono"
+                    value="{{ isset($contacto) ? $contacto->telefono : '' }}"
                     type="tel"
                     minlength="10"
                     maxlength="10"
@@ -59,10 +71,10 @@
             </div>
 
         </div>
-
         <button class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
-            Guardar Contacto
+            {{ isset($contacto) ? 'Actualizar Contacto' : 'Guardar Contacto' }}
         </button>
+
 
             <a href="/"
                 class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">

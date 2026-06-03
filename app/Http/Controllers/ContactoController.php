@@ -29,4 +29,24 @@ class ContactoController extends Controller
 
         return redirect('/Contactos_Tabla');
     }
+
+    public function editar($id)
+    {
+        $contacto = Contacto::findOrFail($id);
+
+        return view('Contactos.contactos', compact('contacto'));
+    }
+
+    public function actualizar(Request $request, $id)
+    {
+        $contacto = Contacto::findOrFail($id);
+
+        $contacto->nombre = $request->nombre;
+        $contacto->correo = $request->correo;
+        $contacto->telefono = $request->telefono;
+
+        $contacto->save();
+
+        return redirect('/Contactos_Tabla');
+    }
 }
