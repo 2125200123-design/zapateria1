@@ -87,10 +87,12 @@ Route::get('/colores/editar/{id}', [ColorController::class, 'editar']);
 Route::get('/marcas/editar/{id}', [MarcaController::class, 'editar']);
 Route::get('/empleados/editar/{id}', [EmpleadoController::class, 'editar']);
 Route::get('/ventas/editar/{id}', [VentaController::class, 'editar']);
+Route::get('/tallas/editar/{id}', [TallaController::class, 'editar']);
 
 //Actualizar datos
 Route::post('/clientes/actualizar/{id}', [ClienteController::class, 'actualizar']);
 Route::post('/colores/actualizar/{id}', [ColorController::class, 'actualizar']);
 Route::post('/marcas/actualizar/{id}', [MarcaController::class, 'actualizar']);
 Route::post('/empleados/actualizar/{id}', [EmpleadoController::class, 'actualizar']);
-Route::post('/ventas/actualizar/{id}', [VentaController::class, 'actualizar']);
+Route::post('/ventas/actualizar/{id}', [VentaController::class, 'actualizar']); 
+Route::post('/tallas/actualizar/{id}', [TallaController::class, 'actualizar']);

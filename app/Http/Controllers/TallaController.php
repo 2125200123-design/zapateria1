@@ -26,4 +26,23 @@ class TallaController extends Controller
 
         return redirect('/Tallas_Tabla');
     }
+
+     public function editar($id)
+    {
+        $talla = Talla::findOrFail($id);
+
+        return view('tallas.tallas', compact('talla'));
+    }
+
+    public function actualizar(Request $request, $id)
+    {
+        $talla = Talla::findOrFail($id);
+
+        $talla->talla = $request->talla;
+
+        $talla->save();
+
+        return redirect('/Tallas_Tabla');
+    }
+
 }

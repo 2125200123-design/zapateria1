@@ -14,7 +14,12 @@
 
 <div class="min-h-screen bg-gray-100 py-10 px-6">
 
-    <form>
+        @if (isset($talla))
+            <form action="/tallas/actualizar/{{ $talla->talla_id }}" method="POST">
+            @else
+                <form action="/tallas/guardar" method="POST">
+        @endif
+        @csrf
 
         <div class="grid grid-cols-1 gap-6">
 
@@ -23,6 +28,7 @@
 
                 <select
                     required
+                    name="talla"
                     class="w-full border rounded-lg p-3 mt-2"
                 >
 
@@ -46,7 +52,7 @@
         </div>
 
         <button class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
-            Guardar Talla
+            {{ isset($talla) ? 'Actualizar Talla' : 'Guardar Talla' }}
         </button>
 
             <a href="/"
