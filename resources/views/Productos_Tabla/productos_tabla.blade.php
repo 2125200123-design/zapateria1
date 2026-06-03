@@ -53,13 +53,13 @@
 
                             <td class="p-4">{{ $producto->existencia }}</td>
 
-                            <td class="p-4">{{ $producto->proveedor }}</td>
+                            <td class="p-4">{{ $producto->proveedor_id }}</td>
 
-                            <td class="p-4">{{ $producto->talla }}</td>
+                            <td class="p-4">{{ $producto->talla_id }}</td>
 
-                            <td class="p-4">{{ $producto->color }}</td>
+                            <td class="p-4">{{ $producto->color_id }}</td>
 
-                            <td class="p-4">{{ $producto->marca }}</td>
+                            <td class="p-4">{{ $producto->marca_id }}</td>
 
                             <td class="p-4">{{ $producto->estado }}</td>
 
