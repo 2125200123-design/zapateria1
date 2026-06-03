@@ -80,6 +80,9 @@ Route::post('/empleados/guardar', [EmpleadoController::class, 'guardar'])->name(
 Route::post('/marcas/guardar', [MarcaController::class, 'guardar'])->name('marcas.guardar');
 Route::post('/tallas/guardar', [TallaController::class, 'guardar'])->name('tallas.guardar');
 Route::post('/ventas/guardar', [VentaController::class, 'guardar'])->name('ventas.guardar');
+Route::post('/proveedores/guardar', [ProveedorController::class, 'guardar'])->name('proveedores.guardar');
+Route::post('/productos/guardar', [ProductoController::class, 'guardar'])->name('productos.guardar');
+Route::post('/compras/guardar', [CompraController::class, 'guardar'])->name('compras.guardar');
 
 //Editar datos
 Route::get('/clientes/editar/{id}', [ClienteController::class, 'editar']);
@@ -90,6 +93,8 @@ Route::get('/ventas/editar/{id}', [VentaController::class, 'editar']);
 Route::get('/tallas/editar/{id}', [TallaController::class, 'editar']);
 Route::get('/contactos/editar/{id}', [ContactoController::class, 'editar']);
 Route::get('/proveedores/editar/{id}', [ProveedorController::class, 'editar']);
+Route::get('/productos/editar/{id}', [ProductoController::class, 'editar']);
+Route::get('/compras/editar/{id}', [CompraController::class, 'editar']);
 
 //Actualizar datos
 Route::post('/clientes/actualizar/{id}', [ClienteController::class, 'actualizar']);
@@ -100,3 +105,5 @@ Route::post('/ventas/actualizar/{id}', [VentaController::class, 'actualizar']);
 Route::post('/tallas/actualizar/{id}', [TallaController::class, 'actualizar']);
 Route::post('/contactos/actualizar/{id}', [ContactoController::class, 'actualizar']);
 Route::post('/proveedores/actualizar/{id}', [ProveedorController::class, 'actualizar']);
+Route::post('/productos/actualizar/{id}', [ProductoController::class, 'actualizar']);
+Route::post('/compras/actualizar/{id}', [CompraController::class, 'actualizar']);
