@@ -10,4 +10,5 @@ class FormProductoController extends Controller
        // return "Este es el metodo para el select * from table";
         return view('productos/productos');
     }
+
 }
