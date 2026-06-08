@@ -38,4 +38,5 @@ class Producto extends Model
             return $this->belongsTo(Talla::class, 'id_talla');
         }
 
+        protected $primaryKey = 'producto_id';
 }

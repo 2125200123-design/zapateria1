@@ -31,6 +31,7 @@
                         <th class="p-4 text-left">Color</th>
                         <th class="p-4 text-left">Marca</th>
                         <th class="p-4 text-left">Estado</th>
+                        <th class="p-4 text-left">Acciones</th>
                     </tr>
 
                 </thead>
@@ -62,6 +63,13 @@
                             <td class="p-4">{{ $producto->marca_id }}</td>
 
                             <td class="p-4">{{ $producto->estado }}</td>
+
+                        <td class="p-4">
+                            <a href="/productos/editar/{{ $producto->producto_id }}"
+                                class="bg-yellow-500 text-white px-3 py-1 rounded">Editar</a>
+                            <a href="/productos/eliminar/{{ $producto->producto_id }}"
+                                class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</a>
+                        </td>
 
                         </tr>
                     @endforeach
