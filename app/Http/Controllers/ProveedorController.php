@@ -16,6 +16,21 @@ class ProveedorController extends Controller
         );
     }
 
+    public function guardar()
+    {
+        $proveedor = new Proveedor();
+
+        $proveedor->nombre = request('nombre');
+        $proveedor->direccion = request('direccion');
+        $proveedor->telefono = request('telefono');
+        $proveedor->correo = request('correo');
+        $proveedor->contacto_id = request('contacto_id');
+
+        $proveedor->save();
+
+        return redirect('/Proveedores_Tabla');
+    }
+
     public function editar($id)
     {
         $proveedor = Proveedor::findOrFail($id);
