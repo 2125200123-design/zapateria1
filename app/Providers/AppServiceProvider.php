@@ -23,15 +23,20 @@ class AppServiceProvider extends ServiceProvider
     {
         $apiKey = env('WEATHER_API_KEY');
 
-        $response = Http::get(
+        $clima = Http::get(
             'http://api.weatherapi.com/v1/forecast.json',
             [
                 'key' => $apiKey,
                 'q' => 'Zapopan',
                 'days' => 1
             ]
-        );
+        )->json();
 
-        View::share('clima', $response->json());
+        $moneda = Http::get(
+            'https://open.er-api.com/v6/latest/USD'
+        )->json();
+
+        View::share('clima', $clima);
+        View::share('tipoCambio', $moneda['rates']['MXN']);
     }
 }

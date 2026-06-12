@@ -29,21 +29,45 @@
 
     <footer class="bg-gray-900 text-white text-center p-4">
 
-        <h3 class="font-bold">Información del clima</h3>
+        <footer class="bg-gray-900 text-white text-center p-4">
 
-        @isset($clima)
-            <p>Ciudad: {{ $clima['location']['name'] }}</p>
-            <p>Estado: {{ $clima['location']['region'] }}</p>
-            <p>País: {{ $clima['location']['country'] }}</p>
+            <h3 class="font-bold">Información General</h3>
 
-            <p>Temperatura: {{ $clima['current']['temp_c'] }} °C</p>
-            <p>Humedad: {{ $clima['current']['humidity'] }} %</p>
+            <p>
+                Ciudad:
+                {{ $clima['location']['name'] }}
+            </p>
+
+            <p>
+                Estado:
+                {{ $clima['location']['region'] }}
+            </p>
+
+            <p>
+                País:
+                {{ $clima['location']['country'] }}
+            </p>
+
+            <p>
+                Temperatura:
+                {{ $clima['current']['temp_c'] }} °C
+            </p>
+
+            <p>
+                Humedad:
+                {{ $clima['current']['humidity'] }} %
+            </p>
 
             <p>
                 Probabilidad de lluvia:
                 {{ $clima['forecast']['forecastday'][0]['day']['daily_chance_of_rain'] }} %
             </p>
-        @endisset
+
+            <p>
+                1 USD = {{ number_format($tipoCambio, 2) }} MXN
+            </p>
+
+        </footer>
 
     </footer>
 
