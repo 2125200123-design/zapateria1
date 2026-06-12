@@ -23,6 +23,8 @@ use App\Http\Controllers\FormProveedorController;
 use App\Http\Controllers\FormTallaController;
 use App\Http\Controllers\FormVentaController;
 
+use App\Http\Controllers\ClimaController;
+
 Route::view('/', 'inicio');
 Route::view('/Inicio_de_sesion', '/Inicio_de_sesion/inicio_de_sesion');
 
@@ -107,3 +109,9 @@ Route::post('/contactos/actualizar/{id}', [ContactoController::class, 'actualiza
 Route::post('/proveedores/actualizar/{id}', [ProveedorController::class, 'actualizar']);
 Route::post('/productos/actualizar/{id}', [ProductoController::class, 'actualizar']);
 Route::post('/compras/actualizar/{id}', [CompraController::class, 'actualizar']);
+
+use App\Http\Controllers\VistaProductoController;
+
+Route::get('/vista_productos', [VistaProductoController::class, 'index']);
+
+Route::get('/clima', [ClimaController::class, 'index']);
