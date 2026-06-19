@@ -1,7 +1,6 @@
 @extends('/Plantilla/plantilla')
 
 @section('content')
-
     <div class="tmb-5 pl-5">
         <h1 class="text-4xl font-bold text-indigo-700">
             Colores
@@ -12,12 +11,12 @@
         </p>
     </div>
 
-<div class="min-h-screen bg-gray-100 py-10 px-6">
+    <div class="min-h-screen bg-gray-100 py-10 px-6">
 
-        @if(isset($colores))
+        @if (isset($colores))
             <form action="/colores/actualizar/{{ $colores->color_id }}" method="POST">
-        @else
-            <form action="/colores/guardar" method="POST">
+            @else
+                <form action="/colores/guardar" method="POST">
         @endif
 
         @csrf
@@ -27,41 +26,21 @@
             <div>
                 <label class="font-semibold">Color</label>
 
-                <select
-                    name="color"
-                    required
-                    class="w-full border rounded-lg p-3 mt-2"
-                >
-
-                    <option value="">
-                        Seleccionar color
-                    </option>
-
-                    <option>Negro</option>
-                    <option>Blanco</option>
-                    <option>Rojo</option>
-                    <option>Azul</option>
-                    <option>Verde</option>
-                    <option>Gris</option>
-                    <option>Café</option>
-                    <option>Rosa</option>
-
-                </select>
-
+                <input name="color" value="{{ $color->color ?? '' }}" type="text" minlength="3" maxlength="30"
+                    required class="w-full border rounded-lg p-3 mt-2" placeholder="Nombre del color">
             </div>
 
         </div>
 
-            <button class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
-                {{ isset($colores) ? 'Actualizar Color' : 'Guardar Color' }}
-            </button>
+        <button class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
+            {{ isset($colores) ? 'Actualizar Color' : 'Guardar Color' }}
+        </button>
 
-            <a href="/" class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
-                Regresar
-            </a>
+        <a href="/" class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
+            Regresar
+        </a>
 
-    </form>
+        </form>
 
-</div>
-
+    </div>
 @endsection
