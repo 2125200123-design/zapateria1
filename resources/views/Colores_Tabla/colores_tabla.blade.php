@@ -36,7 +36,11 @@
                     <td class="p-4">{{ $color->color }}</td>
                     <td class="p-4">
                         <a href="/colores/editar/{{ $color->color_id }}" class="bg-yellow-500 text-white px-3 py-1 rounded">Editar</a>
-                        <a href="/colores/eliminar/{{ $color->color_id }}" class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</a>
+                            <form action="/colores/eliminar/{{ $color->color_id }}" method="POST" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</button>
+                            </form>
                     </td>
                 </tr>
             @endforeach

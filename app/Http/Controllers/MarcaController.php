@@ -43,4 +43,12 @@ class MarcaController extends Controller
 
         return redirect('/Marcas_Tabla');
     }
+
+    public function eliminar($id)
+    {
+        $marca = Marca::findOrFail($id);
+        $marca->delete();
+
+        return redirect('/Marcas_Tabla');
+    }
 }

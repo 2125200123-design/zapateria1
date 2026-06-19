@@ -62,10 +62,11 @@
                                     Editar
                                 </a>
 
-                                <a href="/proveedores/eliminar/{{ $proveedor->proveedor_id }}"
-                                   class="bg-red-500 text-white px-3 py-1 rounded">
-                                    Eliminar
-                                </a>
+                            <form action="/proveedores/eliminar/{{ $proveedor->proveedor_id }}" method="POST" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</button>
+                            </form>
                             </td>
 
                         </tr>

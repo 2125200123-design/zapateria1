@@ -45,4 +45,12 @@ class TallaController extends Controller
         return redirect('/Tallas_Tabla');
     }
 
+        public function eliminar($id)
+        {
+            $talla = Talla::findOrFail($id);
+            $talla->delete();
+    
+            return redirect('/Tallas_Tabla');
+        }
+
 }

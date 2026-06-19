@@ -36,7 +36,11 @@
                         <td class="p-4">{{ $marca->marca }}</td>
                             <td class="p-4">
                         <a href="/marcas/editar/{{ $marca->marca_id }}" class="bg-yellow-500 text-white px-3 py-1 rounded">Editar</a>
-                        <a href="/marcas/eliminar/{{ $marca->marca_id }}" class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</a>
+                            <form action="/marcas/eliminar/{{ $marca->marca_id }}" method="POST" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</button>
+                            </form>
                     </td>
                     </tr>
                 @endforeach

@@ -4,7 +4,7 @@
 
 <h1>Vista Productos</h1>
 
-<table border="2">
+<table border="1">
     <tr>
         @foreach($productos->first()->getAttributes() as $campo => $valor)
             <th>{{ $campo }}</th>

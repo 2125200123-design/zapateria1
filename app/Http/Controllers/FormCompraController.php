@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Proveedor;
 
 class FormCompraController extends Controller
 {
-        public function listado(){
-       // return "Este es el metodo para el select * from table";
-        return view('compras/compras');
+    public function listado()
+    {
+        $proveedores = Proveedor::all();
+
+        return view(
+            'compras.compras',
+            compact('proveedores')
+        );
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     //
+    protected $primaryKey = 'producto_id';
      public $timestamps = false;
      public function proveedor()
     {
@@ -38,5 +39,4 @@ class Producto extends Model
             return $this->belongsTo(Talla::class, 'id_talla');
         }
 
-        protected $primaryKey = 'producto_id';
 }

@@ -2,13 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Marca;
+use App\Models\Talla;
+use App\Models\Color;
+use App\Models\Proveedor;
 
 class FormProductoController extends Controller
 {
-        public function listado(){
-       // return "Este es el metodo para el select * from table";
-        return view('productos/productos');
-    }
+    public function listado()
+    {
+        $marcas = Marca::all();
+        $tallas = Talla::all();
+        $colores = Color::all();
+        $proveedores = Proveedor::all();
 
+        return view(
+            'productos.productos',
+            compact(
+                'marcas',
+                'tallas',
+                'colores',
+                'proveedores'
+            )
+        );
+    }
 }

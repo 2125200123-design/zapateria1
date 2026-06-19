@@ -22,6 +22,8 @@
                     <tr>
                         <th class="p-4 text-left">ID</th>
                         <th class="p-4 text-left">Imagen</th>
+                        <th class="p-4 text-left">Imagen 2</th>
+                        <th class="p-4 text-left">Imagen 3</th>
                         <th class="p-4 text-left">Nombre producto</th>
                         <th class="p-4 text-left">Descripción</th>
                         <th class="p-4 text-left">Precio</th>
@@ -43,7 +45,15 @@
                             <td class="p-4">{{ $producto->producto_id }}</td>
 
                             <td class="p-4">
-                                {{ $producto->imagen }}
+                            <img src="{{ $producto->imagen }}" alt="{{ $producto->nombre_producto }}" class="w-16 h-16 object-cover">
+                            </td>
+
+                            <td class="p-4">
+                            <img src="{{ $producto->imagen2 }}" alt="{{ $producto->nombre_producto }}" class="w-16 h-16 object-cover">
+                            </td>
+
+                            <td class="p-4">
+                            <img src="{{ $producto->imagen3 }}" alt="{{ $producto->nombre_producto }}" class="w-16 h-16 object-cover">
                             </td>
 
                             <td class="p-4">{{ $producto->nombre_producto }}</td>

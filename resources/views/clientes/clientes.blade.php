@@ -75,8 +75,22 @@
             <div>
                 <label class="font-semibold">Imagen</label>
 
-                <input value="{{ $cliente->imagen ?? '' }}" type="file" name="imagen" accept=".jpg,.jpeg,.png,.webp"
-                    class="w-full border rounded-lg p-3 mt-2">
+                <input name="imagen" type="file" accept="image/*" required
+                class="w-full border rounded-lg p-3 mt-2">
+            </div>
+
+            <div>
+                <label class="font-semibold">Imagen 2</label>
+
+                <input name="imagen2" type="file" accept="image/*" required
+                class="w-full border rounded-lg p-3 mt-2">
+            </div>
+
+            <div>
+                <label class="font-semibold">Imagen 3</label>
+
+                <input name="imagen3" type="file" accept="image/*" required
+                class="w-full border rounded-lg p-3 mt-2">
             </div>
 
             <div>

@@ -21,6 +21,7 @@
 
                     <tr>
                         <th class="p-4 text-left">ID</th>
+                        <th class="p-4 text-left">Proveedor id</th>
                         <th class="p-4 text-left">Gasto total</th>
                         <th class="p-4 text-left">Fecha compra</th>
                         <th class="p-4 text-left">Fecha entrega</th>
@@ -36,6 +37,8 @@
                         <tr class="border-b hover:bg-gray-100">
 
                             <td class="p-4">{{ $compra->compra_id }}</td>
+
+                            <td class="p-4">{{ $compra->proveedor_id}}</td>
 
                             <td class="p-4">{{ $compra->gasto_total }}</td>
 

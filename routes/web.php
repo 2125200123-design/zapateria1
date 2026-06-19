@@ -110,6 +110,19 @@ Route::post('/proveedores/actualizar/{id}', [ProveedorController::class, 'actual
 Route::post('/productos/actualizar/{id}', [ProductoController::class, 'actualizar']);
 Route::post('/compras/actualizar/{id}', [CompraController::class, 'actualizar']);
 
+//Eliminar datos
+Route::get('/clientes/eliminar/{id}', [ClienteController::class, 'eliminar']);
+Route::delete('/colores/eliminar/{id}', [ColorController::class, 'eliminar']);
+Route::delete('/marcas/eliminar/{id}', [MarcaController::class, 'eliminar']);
+Route::get('/empleados/eliminar/{id}', [EmpleadoController::class, 'eliminar']);
+Route::get('/ventas/eliminar/{id}', [VentaController::class, 'eliminar']);
+Route::delete('/tallas/eliminar/{id}', [TallaController::class, 'eliminar']);
+Route::delete('/contactos/eliminar/{id}', [ContactoController::class, 'eliminar']);
+Route::delete('/proveedores/eliminar/{id}', [ProveedorController::class, 'eliminar']);
+Route::get('/productos/eliminar/{id}', [ProductoController::class, 'eliminar']);
+Route::get('/compras/eliminar/{id}', [CompraController::class, 'eliminar']);
+
+
 use App\Http\Controllers\VistaProductoController;
 
 Route::get('/vista_productos', [VistaProductoController::class, 'index']);

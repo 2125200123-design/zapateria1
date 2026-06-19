@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Compra;
 use Illuminate\Http\Request;
+use App\Models\Proveedor;
 
 class CompraController extends Controller
 {
     public function listado()
     {
-        $compras = Compra::all();
+        $compras = Compra::where('estado', 'Entregado')->orWhere('estado', 'En Camino')->orWhere('estado', 'Pendiente')->get();
 
         return view(
             'Compras_Tabla.compras_tabla',
@@ -36,8 +37,12 @@ class CompraController extends Controller
     public function editar($id)
     {
         $compra = Compra::findOrFail($id);
+        $proveedores = Proveedor::all();
 
-        return view('Compras.compras', compact('compra'));
+        return view(
+            'compras.compras',
+            compact('compra', 'proveedores')
+        );
     }
 
     public function actualizar(Request $request, $id)
@@ -55,4 +60,16 @@ class CompraController extends Controller
 
         return redirect('/Compras_Tabla');
     }
+
+    public function eliminar($id)
+    {
+        $compra = Compra::findOrFail($id);
+
+        $compra->estado = 'Cancelado'; // o 0
+        $compra->save();
+
+
+        return redirect('/Compras_Tabla');
+    }
+
 }

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class EmpleadoController extends Controller
 {
     public function listado(){
-        $empleados = Empleado::all();
+        $empleados = Empleado::where('estado', 'Activo')->get();
         return view(
             'Empleados_Tabla.empleados_tabla',
             compact('empleados')        
@@ -58,4 +58,15 @@ class EmpleadoController extends Controller
 
         return redirect('/Empleados_Tabla');
     }
+
+public function eliminar($id)
+{
+    $empleado = Empleado::findOrFail($id);
+
+    $empleado->estado = 'Inactivo'; // o 0
+    $empleado->save();
+
+    return redirect('/Empleados_Tabla');
+}
+
 }

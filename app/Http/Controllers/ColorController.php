@@ -45,4 +45,12 @@ class ColorController extends Controller
 
         return redirect('/Colores_Tabla');
     }
+
+    public function eliminar($id)
+    {
+        $colores = Color::findOrFail($id);
+        $colores->delete();
+
+        return redirect('/Colores_Tabla');
+    }
 }

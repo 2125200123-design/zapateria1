@@ -13,94 +13,118 @@
 
     <div class="min-h-screen bg-gray-100 py-10 px-6">
 
-        @if (isset($producto))
-            <form action="/productos/actualizar/{{ $producto->producto_id }}" method="POST">
-            @else
-                <form action="/productos/guardar" method="POST">
-        @endif
+        <form action="/productos/guardar" method="POST" enctype="multipart/form-data">
 
-        @csrf
+            @csrf
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <div>
                     <label class="font-semibold">Nombre del Producto</label>
-                    <input value="{{ isset($producto) ? $producto->nombre_producto : '' }}" name="nombre_producto" type="text" required class="w-full border rounded-lg p-3 mt-2"
-                        placeholder="Nombre del producto">
+                    <input 
+                    value="{{ $producto->nombre_producto ?? '' }}"
+                    name="nombre_producto" 
+                    type="text" 
+                    required class="w-full border rounded-lg p-3 mt-2"
+                    placeholder="Nombre del producto"
+                    value 
+                    >
                 </div>
 
                 <div>
                     <label class="font-semibold">Descripción</label>
-                    <textarea name="descripcion" class="w-full border rounded-lg p-3 mt-2" placeholder="Descripción del producto">{{ isset($producto) ? $producto->descripcion : '' }}</textarea>
+                    <textarea name="descripcion" class="w-full border rounded-lg p-3 mt-2" placeholder="Descripción del producto">{{ $producto->descripcion ?? '' }}</textarea>
                 </div>
 
                 <div>
                     <label class="font-semibold">Precio</label>
-                    <input value="{{ isset($producto) ? $producto->precio : '' }}" name="precio" type="number" min="1" step="0.01" required
-                        class="w-full border rounded-lg p-3 mt-2">
+                    <input name="precio" type="number" min="1" step="0.01" required
+                        class="w-full border rounded-lg p-3 mt-2" value="{{ $producto->precio ?? '' }}">
                 </div>
 
                 <div>
                     <label class="font-semibold">Existencia</label>
-                    <input value="{{ isset($producto) ? $producto->existencia : '' }}" name="existencia" type="number" min="0" required
-                        class="w-full border rounded-lg p-3 mt-2">
+                    <input name="existencia" type="number" min="0" required
+                        class="w-full border rounded-lg p-3 mt-2" value="{{ $producto->existencia ?? '' }}">
                 </div>
 
                 <div>
                     <label class="font-semibold">Imagen</label>
-                    <input value="{{ isset($producto) ? $producto->imagen : '' }}" name="imagen" type="file" class="w-full border rounded-lg p-3 mt-2">
+                    <input name="imagen" type="file" accept="image/*" required
+                        class="w-full border rounded-lg p-3 mt-2">
+                </div>
+
+                <div>
+                    <label class="font-semibold">Imagen 2</label>
+                    <input name="imagen" type="file" accept="image/*" required
+                        class="w-full border rounded-lg p-3 mt-2">
+                </div>
+
+                <div>
+                    <label class="font-semibold">Imagen 3</label>
+                    <input name="imagen" type="file" accept="image/*" required
+                        class="w-full border rounded-lg p-3 mt-2">
                 </div>
 
                 <div>
                     <label class="font-semibold">Proveedor</label>
-                    <select value="{{ isset($producto) ? $producto->proveedor_id : '' }}" name="proveedor_id" required class="w-full border rounded-lg p-3 mt-2">
+                    <select name="proveedor_id" required class="w-full border rounded-lg p-3 mt-2">
                         <option value="">Seleccionar proveedor</option>
-                        <option value="1">Nike</option>
-                        <option value="2">Adidas</option>
-                        <option value="3">Puma</option>
-                        <option value="4">Converse</option>
+
+                        @foreach ($proveedores as $proveedor)
+                            <option value="{{ $proveedor->proveedor_id }}"
+                                {{ ($producto->proveedor_id ?? '') == $proveedor->proveedor_id ? 'selected' : '' }}>
+                                {{ $proveedor->nombre }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
                 <div>
                     <label class="font-semibold">Talla</label>
-                    <select value="{{ isset($producto) ? $producto->talla_id : '' }}" name="talla_id" required class="w-full border rounded-lg p-3 mt-2">
+                    <select name="talla_id" required class="w-full border rounded-lg p-3 mt-2">
                         <option value="">Seleccionar talla</option>
-                        <option value="1">22</option>
-                        <option value="2">23</option>
-                        <option value="3">24</option>
-                        <option value="4">25</option>
-                        <option value="5">26</option>
-                        <option value="6">27</option>
-                        <option value="7">28</option>
+
+                        @foreach ($tallas as $talla)
+                            <option value="{{ $talla->talla_id }}"
+                                {{ ($producto->talla_id ?? '') == $talla->talla_id ? 'selected' : '' }}>
+                                {{ $talla->talla }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
                 <div>
                     <label class="font-semibold">Marca</label>
-                    <select value="{{ isset($producto) ? $producto->marca_id : '' }}" name="marca_id" required class="w-full border rounded-lg p-3 mt-2">
+                    <select name="marca_id" required class="w-full border rounded-lg p-3 mt-2">
                         <option value="">Seleccionar marca</option>
-                        <option value="1">Nike</option>
-                        <option value="2">Adidas</option>
-                        <option value="3">Puma</option>
-                        <option value="4">Vans</option>
+
+                        @foreach ($marcas as $marca)
+                            <option value="{{ $marca->marca_id }}"
+                                {{ ($producto->marca_id ?? '') == $marca->marca_id ? 'selected' : '' }}>
+                                {{ $marca->marca }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
                 <div>
                     <label class="font-semibold">Color</label>
-                    <select value="{{ isset($producto) ? $producto->color_id : '' }}" name="color_id" required class="w-full border rounded-lg p-3 mt-2">
+                    <select name="color_id" required class="w-full border rounded-lg p-3 mt-2">
                         <option value="">Seleccionar color</option>
-                        <option value="1">Negro</option>
-                        <option value="2">Blanco</option>
-                        <option value="3">Rojo</option>
-                        <option value="4">Azul</option>
+
+                        @foreach ($colores as $color)
+                            <option value="{{ $color->color_id}}"
+                                {{ ($producto->color_id ?? '') == $color->color_id ? 'selected' : '' }}>
+                                {{ $color->color }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
                 <div>
                     <label class="font-semibold">Estado</label>
-                    <select value="{{ isset($producto) ? $producto->estado : '' }}" name="estado" required class="w-full border rounded-lg p-3 mt-2">
+                    <select name="estado" required class="w-full border rounded-lg p-3 mt-2">
                         <option value="">Seleccionar estado</option>
                         <option value="Disponible">Disponible</option>
                         <option value="Agotado">Agotado</option>
@@ -110,12 +134,11 @@
 
             </div>
 
-        <button class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
-            {{ isset($producto) ? 'Actualizar Producto' : 'Guardar Producto' }}
-        </button>
+            <button class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
+                Guardar Producto
+            </button>
 
-            <a href="/"
-                class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
+            <a href="/" class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl">
                 Regresar
             </a>
 

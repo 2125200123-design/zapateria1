@@ -40,10 +40,12 @@
                                     class="bg-yellow-500 text-white px-3 py-1 rounded">
                                     Editar
                                 </a>
-                                <a href="/tallas/eliminar/{{ $talla->talla_id }}"
-                                    class="bg-red-500 text-white px-3 py-1 rounded">
-                                    Eliminar
-                                </a>
+                            <form action="/tallas/eliminar/{{ $talla->talla_id }}" method="POST" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</button>
+                            </form>
+                            </td>
                             </td>
 
                         </tr>

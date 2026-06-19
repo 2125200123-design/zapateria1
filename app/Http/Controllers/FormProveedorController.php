@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Contacto;
 
 class FormProveedorController extends Controller
 {
-        public function listado(){
-       // return "Este es el metodo para el select * from table";
-        return view('proveedores/proveedores');
+    public function listado()
+    {
+        $contactos = Contacto::all();
+
+        return view(
+            'proveedores.proveedores',
+            compact('contactos')
+        );
     }
 }

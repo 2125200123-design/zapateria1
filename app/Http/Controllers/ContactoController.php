@@ -49,4 +49,12 @@ class ContactoController extends Controller
 
         return redirect('/Contactos_Tabla');
     }
+
+    public function eliminar($id)
+    {
+        $contacto = Contacto::findOrFail($id);
+        $contacto->delete();
+
+        return redirect('/Contactos_Tabla');
+    }
 }

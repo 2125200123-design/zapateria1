@@ -58,17 +58,12 @@
 
                     <option value="">Seleccionar contacto</option>
 
-                    <option value="1" {{ ($proveedor->contacto_id ?? '') == 1 ? 'selected' : '' }}>
-                        Juan Pérez
-                    </option>
-
-                    <option value="2" {{ ($proveedor->contacto_id ?? '') == 2 ? 'selected' : '' }}>
-                        María López
-                    </option>
-
-                    <option value="3" {{ ($proveedor->contacto_id ?? '') == 3 ? 'selected' : '' }}>
-                        Carlos Ramírez
-                    </option>
+                    @foreach ($contactos as $contacto)
+                        <option value="{{ $contacto->contacto_id }}"
+                            {{ ($proveedor->contacto_id ?? '') == $contacto->contacto_id ? 'selected' : '' }}>
+                            {{ $contacto->nombre }}
+                        </option>
+                    @endforeach
 
                 </select>
             </div>

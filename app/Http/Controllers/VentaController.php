@@ -11,7 +11,7 @@ class VentaController extends Controller
 {
     public function listado()
     {
-        $ventas = Venta::all();
+        $ventas = Venta::where('estado', 'pagado')->orWhere('estado', 'pendiente')->get();
 
         return view('Ventas_Tabla.ventas_tabla', compact('ventas'));
     }
@@ -69,4 +69,14 @@ class VentaController extends Controller
 
         return redirect('/Ventas_Tabla');
     }
+
+    public function eliminar($id)
+{
+    $venta = Venta::findOrFail($id);
+
+    $venta->estado = 'cancelado'; // o 0
+    $venta->save();
+
+    return redirect('/Ventas_Tabla');
+}
 }

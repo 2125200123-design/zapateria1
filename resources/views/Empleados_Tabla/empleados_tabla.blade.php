@@ -23,6 +23,8 @@
                 <tr>
                     <th class="p-4 text-left">ID</th>
                     <th class="p-4 text-left">Imagen</th>
+                    <th class="p-4 text-left">Imagen 2</th>
+                    <th class="p-4 text-left">Imagen 3</th>
                     <th class="p-4 text-left">Nombre</th>
                     <th class="p-4 text-left">Correo</th>
                     <th class="p-4 text-left">RFC</th>
@@ -41,6 +43,14 @@
 <tr class="border-b hover:bg-gray-100">
 
     <td class="p-4">{{ $empleado->empleado_id }}</td>
+
+    <td class="p-4">
+        {{ $empleado->imagen }}
+    </td>
+
+    <td class="p-4">
+        {{ $empleado->imagen }}
+    </td>
 
     <td class="p-4">
         {{ $empleado->imagen }}

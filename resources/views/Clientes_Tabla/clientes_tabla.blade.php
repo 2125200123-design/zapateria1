@@ -21,7 +21,9 @@
 
                     <tr>
                         <th class="p-4 text-left">ID</th>
-                        <th class="p-4 text-left">Imagen</th>
+                        <th class="p-4 text-left">Imagen 1</th>
+                        <th class="p-4 text-left">Imagen 2</th>
+                        <th class="p-4 text-left">Imagen 3</th>
                         <th class="p-4 text-left">Nombre</th>
                         <th class="p-4 text-left">Correo</th>
                         <th class="p-4 text-left">RFC</th>
@@ -40,7 +42,15 @@
                         <td class="p-4">{{ $cliente->cliente_id }}</td>
 
                         <td class="p-4">
-                            {{ $cliente->imagen }}
+                        <img src="{{ $cliente->imagen }}" alt="{{ $cliente->nombre }}" class="w-16 h-16 object-cover">
+                        </td>
+
+                        <td class="p-4">
+                        <img src="{{ $cliente->imagen }}" alt="{{ $cliente->nombre }}" class="w-16 h-16 object-cover">
+                        </td>
+
+                        <td class="p-4">
+                        <img src="{{ $cliente->imagen }}" alt="{{ $cliente->nombre }}" class="w-16 h-16 object-cover">
                         </td>
 
                         <td class="p-4">{{ $cliente->nombre }}</td>
@@ -60,7 +70,9 @@
                         <td class="p-4">
                             <a href="/clientes/editar/{{ $cliente->cliente_id }}"
                                 class="bg-yellow-500 text-white px-3 py-1 rounded">Editar</a>
+                                
                             <a href="/clientes/eliminar/{{ $cliente->cliente_id }}"
+
                                 class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</a>
                         </td>
 
